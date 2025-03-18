@@ -1,44 +1,30 @@
 import tkinter as tk
 from tkinter import ttk
 
-window = tk.Tk()
+app = tk.Tk()
 
-window.title("Demo")
-window.geometry("300x200")
+app.title("New Work")
+app.geometry("300x200")
 
-initialOutput = "Converted Texts"
+input_value = tk.StringVar()
+inputElement = ttk.Entry(master=app, textvariable=input_value)
+inputElement.pack()
 
-# functionalities
-def convertFunction():
-    milesInput = input_value.get()
-    kmOutput = f'{milesInput*1.61} Km'
-    output_value.set(kmOutput)
-
-
-#title
-header = ttk.Label(master = window, text="Miles to KM Conversion", font="Poppins 24 bold")
-
-header.pack()
-
-#input Div
-
-inputContainer = ttk.Frame(master = window)
-
-input_value = tk.IntVar()
-inputEntry = ttk.Entry(master=inputContainer, textvariable=input_value)
-inputButton = ttk.Button(master = inputContainer, text="Generate", command=convertFunction)
-
-inputEntry.pack(side="left", padx=10)
-inputButton.pack()
-inputContainer.pack(pady=10)
-
-
-#outpute text
 output_value = tk.StringVar()
-outputText = ttk.Label(master=window, text=initialOutput, font="Poppins 24 bold", textvariable=output_value)
+outputEle = ttk.Label(master=app, text="Some random", textvariable=input_value)
+outputEle.pack()
 
-outputText.pack()
+def submitFunc():
+    inputElement["state"] = "disabled"
+
+enterBtn = ttk.Button(master=app, text="Enter Btn", command=submitFunc)
+enterBtn.pack()
+
+def resetFunc():
+    inputElement["state"] = "enabled"
+
+resetEle = ttk.Button(master=app, text="Reset Btn", command=resetFunc)
+resetEle.pack()
 
 
-#runing
-window.mainloop()
+app.mainloop()
