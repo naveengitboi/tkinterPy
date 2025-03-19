@@ -13,7 +13,6 @@ progressBar = ttk.Progressbar(master=app, variable=scaleValue, maximum=25, orien
 progressBar.pack()
 
 
-
 scrolleTextBox = scrolledtext.ScrolledText(master=app, width=50, height=5)
 scrolleTextBox.pack()
 
